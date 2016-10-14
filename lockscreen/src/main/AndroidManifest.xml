@@ -9,7 +9,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <activity
+            android:name=".PreLockActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/TransTheme" />
+
         <service android:name=".LockScreenGuardService" />
+
+        <receiver android:name=".LockSelfStartReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -12,7 +12,6 @@ import android.util.Log;
 public class LockScreenReceiver extends BroadcastReceiver {
 
     public static final String TAG = "Z-LockScreenReceiver";
-    private LockScreenHelper record = LockScreenHelper.getInstance();
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -21,7 +20,7 @@ public class LockScreenReceiver extends BroadcastReceiver {
 
         if (action.equals(Intent.ACTION_SCREEN_OFF)) {
             Log.i(TAG, "onReceive isShown: " + BaseLockScreenActivity.isShown);
-            Intent lockIntent = new Intent(context, record.getCurrLockScreenActivityClass());
+            Intent lockIntent = new Intent(context, PreLockActivity.class);
             lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             if (!BaseLockScreenActivity.isShown) {
                 if (Utils.isScreenOn(context)) return;
@@ -30,7 +29,6 @@ public class LockScreenReceiver extends BroadcastReceiver {
                 Log.i(TAG, "onReceive startActivity...");
             }
         } else if (action.equals(Intent.ACTION_SCREEN_ON)) {
-
         }
     }
 }

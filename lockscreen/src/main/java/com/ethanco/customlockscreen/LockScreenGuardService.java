@@ -29,7 +29,7 @@ public class LockScreenGuardService extends Service {
     public void onCreate() {
         super.onCreate();
         //upgradeLevelByForeground();
-
+        Utils.disableKeyguard(this);
         registerLockScreenReceiver();
     }
 
@@ -53,7 +53,6 @@ public class LockScreenGuardService extends Service {
         Log.i("Z-LockScreenGuard", "onStartCommand: ");
 
         startIntent = intent;
-        Utils.disableKeyguard(this);
         return super.onStartCommand(intent, flags, startId);
     }
 

@@ -10,6 +10,8 @@ import android.util.Log;
  * Created by Zhk on 2016/10/12.
  */
 public class Utils {
+    private static KeyguardManager.KeyguardLock keyguardLock;
+
     /**
      * 判断屏幕状态
      *
@@ -33,8 +35,12 @@ public class Utils {
      * @param context
      */
     public static void disableKeyguard(Context context) {
-        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
-        KeyguardManager.KeyguardLock keyguardLock = keyguardManager.newKeyguardLock("KeyguardLock");
+        if (keyguardLock == null) {
+            KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+            keyguardLock = keyguardManager.newKeyguardLock("KeyguardLock");
+        }
+
+        //keyguardLock.reenableKeyguard();
         keyguardLock.disableKeyguard();
         Log.i("Z-", "disableKeyguard i: " + i++);
     }
