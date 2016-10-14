@@ -1,18 +1,17 @@
 package com.ethanco.customlockscreen;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 
 /**
  * @Description 基础的锁屏Activity基类
  * 如需关闭屏幕时启动自定义锁屏，需使用LockScreenHelper.startLockScreenService()来启动锁屏服务
  * Created by YOLANDA on 2016-02-15.
  */
-public abstract class BaseLockScreenActivity extends AppCompatActivity {
+public abstract class BaseLockScreenActivity extends Activity {
 
     private static final String TAG = "Z-LockScreen";
     public static boolean isShown = false;
@@ -27,7 +26,7 @@ public abstract class BaseLockScreenActivity extends AppCompatActivity {
         if (Utils.isScreenOn(this)) finish();
 
         //隐藏虚拟按键
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         //注册 Home键监听
         registerHomePressListener();
 

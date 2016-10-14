@@ -28,11 +28,12 @@ public class LockScreenGuardService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        upgradeLevelByForeground();
+        //upgradeLevelByForeground();
 
         registerLockScreenReceiver();
     }
 
+    //Service 提高级别 (Service 通知)
     private void upgradeLevelByForeground() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             Notification.Builder builder = new Notification.Builder(this);
@@ -52,7 +53,6 @@ public class LockScreenGuardService extends Service {
         Log.i("Z-LockScreenGuard", "onStartCommand: ");
 
         startIntent = intent;
-        Utils.disableKeyguard(this);
         Utils.disableKeyguard(this);
         return super.onStartCommand(intent, flags, startId);
     }

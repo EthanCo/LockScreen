@@ -4,6 +4,7 @@
     <style name="LockTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <!--虚拟按键 背景透明-->
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

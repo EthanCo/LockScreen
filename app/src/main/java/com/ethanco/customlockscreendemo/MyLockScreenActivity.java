@@ -2,6 +2,7 @@ package com.ethanco.customlockscreendemo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 
 import com.ethanco.customlockscreen.BaseLockScreenActivity;
 
@@ -14,5 +15,12 @@ public class MyLockScreenActivity extends BaseLockScreenActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lockscreen);
+
+        findViewById(R.id.btn_unlock).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
