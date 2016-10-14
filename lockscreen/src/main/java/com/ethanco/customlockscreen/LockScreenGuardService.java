@@ -28,7 +28,7 @@ public class LockScreenGuardService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        upgradeLevelByForeground();
+        //upgradeLevelByForeground();
         Utils.disableKeyguard(this);
         registerLockScreenReceiver();
     }
