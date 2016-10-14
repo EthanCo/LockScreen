@@ -16,11 +16,19 @@
 
         <service android:name=".LockScreenGuardService" />
 
-        <receiver android:name=".LockSelfStartReceiver">
-            <intent-filter android:priority="2147483647">
+        <receiver
+            android:name=".LockSelfStartReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
     </application>

@@ -17,10 +17,12 @@ public class LockSelfStartReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {//开机自启
-            Intent lockIntent = new Intent(context, PreLockActivity.class);
-            lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(lockIntent);
+//            Utils.disableKeyguard(context);
+//            Intent lockIntent = new Intent(context, PreLockActivity.class);
+//            lockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(lockIntent);
             //abortBroadcast();
+            Utils.disableKeyguard(context);
             Log.i(TAG, "onReceive BOOT_COMPLETED-disableKeyguard");
         }
     }
